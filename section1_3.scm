@@ -43,3 +43,15 @@
 
 (simpson-integral cube 0 1 1000)
 ; 0.25, compared to 0.249999875000001 from the book
+
+
+; EXERCISE 1.30
+;
+; The (sum ...) procedure above is linear recursion, and we are asked to convert it into an iterative
+; procedure.
+(define (sum term a next b)
+  (define (iter a result)
+    (if (> a b)
+        result
+        (iter (next a) (+ result (term a)))))
+  (iter a 0))
